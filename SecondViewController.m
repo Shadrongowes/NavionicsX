@@ -30,13 +30,14 @@ const int kInfoViewTag = 1001;
         _arController = [[AugmentedRealityController alloc] initWithView:[self view] parentViewController:self withDelgate:self];
     }
     
-    [_arController setMinimumScaleFactor:0.5];
+    [_arController setMinimumScaleFactor:1];
     [_arController setScaleViewsBasedOnDistance:YES];
     [_arController setRotateViewsBasedOnPerspective:YES];
     [_arController setDebugMode:NO];
 }
 - (void)viewWillAppear:(BOOL)animated {
-   [self generateGeoLocations];
+    [super viewWillAppear:animated];
+    [self geoLocations];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

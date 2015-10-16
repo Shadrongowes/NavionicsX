@@ -59,7 +59,7 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     CLLocationAccuracy accuracy = [lastLocation horizontalAccuracy];
     NSLog(@"Received location %@ with accuracy %f", lastLocation, accuracy);
     
-	if(accuracy < 100.0) {
+	if(accuracy < 20.0) {
 		MKCoordinateSpan span = MKCoordinateSpanMake(0.14, 0.14);
         MKCoordinateRegion region = MKCoordinateRegionMake([lastLocation coordinate], span);
         
@@ -68,31 +68,29 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
         [[PlacesLoader sharedInstance] loadPOIsForLocation:[maplocations lastObject] radius:1000 successHandler:^(NSDictionary *response) {
             NSLog(@"Response: %@", response);
            
-                //1
                 if([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
-                    //2
+                   
                     id places = [response objectForKey:@"results"];
-                    //3
+                  
                     NSMutableArray *temp = [NSMutableArray array];
                     
-                    //4
+                 
                     if([places isKindOfClass:[NSArray class]]) {
                         for(NSDictionary *resultsDict in places) {
-                            //5
+                    
                             CLLocation *location = [[CLLocation alloc] initWithLatitude:[[resultsDict valueForKeyPath:kLatitudeKeypath] floatValue] longitude:[[resultsDict valueForKeyPath:kLongitudeKeypath] floatValue]];
-                            
-                            //6
+                         
                             Place *currentPlace = [[Place alloc] initWithLocation:location reference:[resultsDict objectForKey:kReferenceKey] name:[resultsDict objectForKey:kNameKey] address:[resultsDict objectForKey:kAddressKey]];
                             
                             [temp addObject:currentPlace];
                             
-                            //7
+                          
                             PlaceAnnotation *annotation = [[PlaceAnnotation alloc] initWithPlace:currentPlace];
                             [_mapView addAnnotation:annotation];
                         }
                     }
                     
-                    //8
+                    
                     _maplocations = [temp copy];
                     
                     NSLog(@"Locations: %@", _maplocations);
