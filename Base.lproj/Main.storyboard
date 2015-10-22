@@ -27,7 +27,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map View" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Map View" image="4613686789_30x30.png" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="mapView" destination="fK9-du-3o6" id="lwY-8s-kuY"/>
                     </connections>
@@ -50,7 +50,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fish Mode" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Fish Mode" image="fishing_black.png" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +78,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="4613686789_30x30.png" width="30" height="30"/>
+        <image name="fishing_black.png" width="30" height="30"/>
     </resources>
 </document>

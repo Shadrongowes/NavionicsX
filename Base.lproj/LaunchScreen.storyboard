@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m57-Dv-c9Z">
-                                <rect key="frame" x="0.0" y="0.0" width="432" height="370"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Launch.png" translatesAutoresizingMaskIntoConstraints="NO" id="lST-pb-Zz6">
+                                <rect key="frame" x="-178" y="-333" width="750" height="1334"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -27,7 +27,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-29" y="301"/>
+            <point key="canvasLocation" x="-321" y="-45"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Launch.png" width="750" height="1334"/>
+    </resources>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
 </document>

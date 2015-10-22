@@ -33,9 +33,14 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     [_locationManager setDelegate:self];
     self.tabBarController.delegate = self;
     [self.locationManager requestAlwaysAuthorization];
-    [_locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
+    [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
     [_locationManager startUpdatingLocation];
   
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+   [_locationManager startUpdatingLocation];
 }
 
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
@@ -59,13 +64,13 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
     CLLocationAccuracy accuracy = [lastLocation horizontalAccuracy];
     NSLog(@"Received location %@ with accuracy %f", lastLocation, accuracy);
     
-	if(accuracy < 20.0) {
+	if(accuracy < 100.0) {
 		MKCoordinateSpan span = MKCoordinateSpanMake(0.14, 0.14);
         MKCoordinateRegion region = MKCoordinateRegionMake([lastLocation coordinate], span);
         
         [_mapView setRegion:region animated:YES];
         
-        [[PlacesLoader sharedInstance] loadPOIsForLocation:[maplocations lastObject] radius:1000 successHandler:^(NSDictionary *response) {
+        [[PlacesLoader sharedInstance] loadPOIsForLocation:[maplocations lastObject] radius:500.0 successHandler:^(NSDictionary *response) {
             NSLog(@"Response: %@", response);
            
                 if([[response objectForKey:@"status"] isEqualToString:@"OK"]) {
